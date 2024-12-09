@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Figma</title>
+    <link rel="stylesheet" href="../Css/style1.css">
+    <style>
+        /* ...existing code... */
+        body {
+            background: url('../images/ocean.png') no-repeat center center fixed;
+            background-size: cover;
+        }
+        .text-box {
+            background: #fff;
+            border-radius: 15px;
+            padding: 20px;
+            margin: 390px auto;
+            width: 60%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            text-align: center;
+        }
+        .animated {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <header id="header">
+        <h1>Figma</h1>
+        <nav>
+            <ul>
+                <li><a href="homepage.html">Home</a></li>
+                <!-- ...other links... -->
+            </ul>
+        </nav>
+    </header>
+    <section id="video-background">
+        <video autoplay muted loop id="bg-video">
+            <source src="../videos/Oceaan.mp4" type="video/mp4">
+        </video>
+    </section>
+    <main>
+        <section class="text-box animate">
+            <h2>Over Figma</h2>
+            <p>Figma is een webgebaseerde grafische ontwerp tool die vooral wordt gebruikt voor UI/UX ontwerp. Het biedt krachtige samenwerkingstools en is populair onder ontwerpers vanwege zijn gebruiksvriendelijke interface.</p>
+            <p>Lees meer op <a href="https://nl.wikipedia.org/wiki/Figma_(software)" target="_blank">Wikipedia</a>.</p>
+        </section>
+    </main>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var elements = document.querySelectorAll('.animate');
+            elements.forEach(function(element) {
+                element.classList.add('animated');
+            });
+        });
+    </script>
+</body>
+</html>
