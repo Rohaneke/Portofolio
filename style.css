@@ -4,9 +4,9 @@ body {
     background: linear-gradient(to bottom, #6a6a6a, #000f3f);
     color: white;
     text-align: center;
-  }
-  
-  .navbar {
+}
+
+.navbar {
     display: flex;
     justify-content: center;
     gap: 2rem;
@@ -15,9 +15,9 @@ body {
     border-radius: 2rem;
     width: fit-content;
     margin: 1rem auto;
-  }
-  
-  .navbar button {
+}
+
+.navbar button {
     background: #3c3c6c;
     border: none;
     padding: 0.6rem 1.5rem;
@@ -25,52 +25,95 @@ body {
     color: white;
     font-weight: bold;
     cursor: pointer;
-  }
-  
-  .about {
+}
+
+.about {
     background: #2d2d4f;
     margin: 2rem auto;
     padding: 1.5rem;
     width: 60%;
     border-radius: 1.5rem;
-  }
-  
-  .section-container {
+}
+
+.section-container {
     display: flex;
     justify-content: center;
     gap: 2rem;
     margin-top: 2rem;
     flex-wrap: wrap;
-  }
-  
-  .card {
+}
+
+.card {
     background: #8b8b8b;
     border-radius: 1rem;
     padding: 1.5rem;
-    width: 250px;
-  }
-  
-  .card h2 {
+    width: 350px;
+    height: 400px;
+}
+
+.card h2 {
     margin-bottom: 1rem;
-  }
-  
-  .icons {
+}
+
+.icons {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 1rem;
-  }
-  
-  .icons img {
+}
+
+.icons img {
     width: 50px;
     height: 50px;
-  }
-  
-  .bottom-box {
+}
+
+.bottom-box {
     background: #5e5e5e;
     border-radius: 1.5rem;
     width: 70%;
     padding: 1.5rem;
     margin: 3rem auto;
-  }
-  
+}
+
+/* Responsive styles for tablets */
+@media (max-width: 768px) {
+    .about {
+        width: 80%;
+    }
+
+    .card {
+        width: 300px;
+        height: auto;
+    }
+
+    .bottom-box {
+        width: 90%;
+    }
+}
+
+/* Responsive styles for mobile devices */
+@media (max-width: 480px) {
+    .navbar {
+        flex-direction: column;
+        gap: 1rem;
+        width: 90%;
+    }
+
+    .about {
+        width: 90%;
+    }
+
+    .card {
+        width: 100%;
+        height: auto;
+    }
+
+    .icons img {
+        width: 40px;
+        height: 40px;
+    }
+
+    .bottom-box {
+        width: 95%;
+    }
+}
