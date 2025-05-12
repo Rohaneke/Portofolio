@@ -38,17 +38,44 @@ body {
 .section-container {
     display: flex;
     justify-content: center;
-    gap: 2rem;
+    gap: 2rem; /* Space between cards */
     margin-top: 2rem;
-    flex-wrap: wrap;
+    flex-wrap: wrap; /* Ensures cards wrap on smaller screens */
 }
 
 .card {
-    background: #8b8b8b;
-    border-radius: 1rem;
-    padding: 1.5rem;
-    width: 350px;
-    height: 400px;
+    width: 290px; /* Updated width */
+    height: 350px; /* Updated height */
+    background-image: linear-gradient(163deg, #00ff75 0%, #3700ff 100%);
+    border-radius: 20px;
+    transition: all 0.3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem; /* Added margin to prevent overlapping */
+}
+
+.card:hover {
+    box-shadow: 0px 0px 30px 1px rgba(0, 255, 117, 0.3);
+}
+
+.card2 {
+    width: 320px; /* Slightly smaller width to fit inside the card */
+    height: 350px; /* Slightly smaller height to fit inside the card */
+    background-color: #1a1a1a;
+    border-radius: 20px;
+    transition: all 0.2s;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 1rem;
+}
+
+.card2:hover {
+    transform: scale(0.98);
+    border-radius: 20px;
 }
 
 .card h2 {
@@ -59,12 +86,13 @@ body {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 1rem;
+    gap: 0.5rem;
+    margin-top: 1rem;
 }
 
 .icons img {
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
 }
 
 .bottom-box {
@@ -73,6 +101,36 @@ body {
     width: 70%;
     padding: 1.5rem;
     margin: 3rem auto;
+}
+
+.btn-shine {
+    display: inline-block; /* Ensure it behaves like a heading */
+    margin: 0 auto 1rem; /* Center it and add spacing below */
+    padding: 12px 48px;
+    color: #fff;
+    background: linear-gradient(to right, #9f9f9f 0, #fff 10%, #868686 20%);
+    background-position: 0;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shine 3s infinite linear;
+    animation-fill-mode: forwards;
+    font-weight: 600;
+    font-size: 24px;
+    text-decoration: none;
+    white-space: nowrap;
+    font-family: "Poppins", sans-serif;
+}
+
+@keyframes shine {
+    0% {
+        background-position: 0;
+    }
+    60% {
+        background-position: 180px;
+    }
+    100% {
+        background-position: 180px;
+    }
 }
 
 /* Responsive styles for tablets */
@@ -117,3 +175,7 @@ body {
         width: 95%;
     }
 }
+
+
+
+
