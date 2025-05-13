@@ -15,6 +15,12 @@ body {
   border-radius: 2rem;
   width: fit-content;
   margin: 1rem auto;
+  transition: all 0.3s ease-in-out; /* Smooth transition for animation */
+}
+
+.navbar:hover {
+  background: linear-gradient(90deg, #3c3c6c, #1c1c3c); /* Animated gradient on hover */
+  transform: scale(1.05); /* Slightly enlarges the navbar */
 }
 
 .navbar button {
@@ -25,6 +31,12 @@ body {
   color: white;
   font-weight: bold;
   cursor: pointer;
+  transition: all 0.3s ease-in-out; /* Smooth transition for button hover */
+}
+
+.navbar button:hover {
+  background: #5c5c8c; /* Changes button color on hover */
+  transform: scale(1.1); /* Slightly enlarges the button */
 }
 
 .about {
@@ -56,7 +68,7 @@ body {
 }
 
 .card:hover {
-  box-shadow: 0px 0px 30px 1px rgba(0, 255, 117, 0.3);
+  box-shadow: 0px 0px 30px 1px rgba(20, 9, 180, 0.371);
 }
 
 .card2 {
@@ -96,11 +108,13 @@ body {
 }
 
 .bottom-box {
-  background: #5e5e5e;
+  background: radial-gradient(circle, #616161 0%, #0E153B 100%);
   border-radius: 1.5rem;
   width: 70%;
   padding: 1.5rem;
   margin: 3rem auto;
+  color: white; /* Ensure text is visible on the gradient */
+  text-align: center;
 }
 
 .btn-shine {
