@@ -41,7 +41,7 @@ body {
   font-weight: 500;
   font-size: 25px;
   box-sizing: content-box;
-  height: 40px;
+  height: 50px;
   padding: 10px 10px;
   display: flex;
   border-radius: 8px;
@@ -69,7 +69,7 @@ body {
   display: block;
   height: 100%;
   padding-left: 6px;
-  color: #956afa;
+  color: #0800ff;
   animation: spin_4991 4s infinite;
 }
 
