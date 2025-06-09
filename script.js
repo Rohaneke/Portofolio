@@ -15,15 +15,24 @@ window.addEventListener('load', function() {
       // Trigger existing animations
       const aboutSection = document.querySelector('.about');
       const contactSection = document.querySelector('.bottom-box');
+      const cards = document.querySelectorAll('.card');
       
       setTimeout(() => {
         aboutSection.classList.add('animate');
       }, 400);
       
       setTimeout(() => {
+        cards.forEach((card, index) => {
+          setTimeout(() => {
+            card.classList.add('animate');
+          }, index * 200); // Stagger the card animations
+        });
+      }, 800);
+      
+      setTimeout(() => {
         contactSection.classList.add('animate');
-      }, 1000);
+      }, 1400);
       
     }, 500); // Wait for fade-out transition
-  }, 4000); // Changed from 3000 to 4000 milliseconds (4 seconds)
+  }, 4000); // 4 seconds loading time
 });
