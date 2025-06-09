@@ -44,12 +44,19 @@ body {
   height: 50px;
   padding: 10px 10px;
   display: flex;
+  align-items: center; /* Add this to vertically center align items */
   border-radius: 8px;
+}
+
+.loader p {
+  margin: 0; /* Remove default margin from the p tag */
+  margin-right: 8px; /* Add some space between "loading" and animated words */
 }
 
 .words {
   overflow: hidden;
   position: relative;
+  height: 30px; /* Set a fixed height to contain the animated words */
 }
 
 .words::after {
@@ -67,10 +74,11 @@ body {
 
 .word {
   display: block;
-  height: 100%;
+  height: 30px; /* Match the height of .words container */
   padding-left: 6px;
   color: #0800ff;
   animation: spin_4991 4s infinite;
+  line-height: 30px; /* Center the text vertically within each word */
 }
 
 @keyframes spin_4991 {
