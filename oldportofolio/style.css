@@ -1,0 +1,397 @@
+body {
+  margin: 0;
+  font-family: 'Exo 2', sans-serif;
+  background: linear-gradient(to bottom, #6a6a6a, #000f3f);
+  color: white;
+  text-align: center;
+  overflow-x: hidden;
+}
+
+/* Loading Screen Styles */
+.loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, #6a6a6a, #000f3f);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  transition: opacity 0.5s ease-out;
+}
+
+.loading-screen.fade-out {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.card-loader {
+  --bg-color: #2d2d4f;
+  background-color: var(--bg-color);
+  padding: 1rem 2rem;
+  border-radius: 1.25rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.loader {
+  color: rgb(124, 124, 124);
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-size: 25px;
+  box-sizing: content-box;
+  height: 50px;
+  padding: 10px 10px;
+  display: flex;
+  align-items: center; /* Add this to vertically center align items */
+  border-radius: 8px;
+}
+
+.loader p {
+  margin: 0; /* Remove default margin from the p tag */
+  margin-right: 8px; /* Add some space between "loading" and animated words */
+}
+
+.words {
+  overflow: hidden;
+  position: relative;
+  height: 30px; /* Set a fixed height to contain the animated words */
+}
+
+.words::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    var(--bg-color) 10%,
+    transparent 30%,
+    transparent 70%,
+    var(--bg-color) 90%
+  );
+  z-index: 20;
+}
+
+.word {
+  display: block;
+  height: 30px; /* Match the height of .words container */
+  padding-left: 6px;
+  color: #0800ff;
+  animation: spin_4991 4s infinite;
+  line-height: 30px; /* Center the text vertically within each word */
+}
+
+@keyframes spin_4991 {
+  10% {
+    transform: translateY(-102%);
+  }
+  25% {
+    transform: translateY(-100%);
+  }
+  35% {
+    transform: translateY(-202%);
+  }
+  50% {
+    transform: translateY(-200%);
+  }
+  60% {
+    transform: translateY(-302%);
+  }
+  75% {
+    transform: translateY(-300%);
+  }
+  85% {
+    transform: translateY(-402%);
+  }
+  100% {
+    transform: translateY(-400%);
+  }
+}
+
+/* Main Content Styles */
+.main-content {
+  opacity: 0;
+  transition: opacity 0.8s ease-in;
+}
+
+.main-content.show {
+  opacity: 1;
+}
+
+.navbar {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  padding: 1rem;
+  background: #1c1c3c;
+  border-radius: 2rem;
+  width: fit-content;
+  margin: 1rem auto;
+  transition: all 0.3s ease-in-out;
+}
+
+.navbar:hover {
+  background: linear-gradient(90deg, #3c3c6c, #1c1c3c);
+  transform: scale(1.05);
+}
+
+.navbar button {
+  background: #3c3c6c;
+  border: none;
+  padding: 0.6rem 1.5rem;
+  border-radius: 1rem;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.navbar button:hover {
+  background: #5c5c8c;
+  transform: scale(1.1);
+}
+
+.about {
+  background: #2d2d4f;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  width: 60%;
+  border-radius: 1.5rem;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease-out;
+}
+
+.about.animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.about .btn-shine {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease-out 0.3s;
+}
+
+.about.animate .btn-shine {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.about p {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease-out 0.6s;
+}
+
+.about.animate p {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.section-container {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+.card {
+  width: 320px;
+  height: 350px;
+  background-image: linear-gradient(163deg, #00ff75 0%, #3700ff 100%);
+  border-radius: 20px;
+  transition: all 0.3s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease-out;
+}
+
+.card.animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.card:hover {
+  box-shadow: 0px 0px 30px 1px rgba(20, 9, 180, 0.371);
+}
+
+.card2 {
+  width: 320px;
+  height: 350px;
+  background-color: #1a1a1a;
+  border-radius: 20px;
+  transition: all 0.2s;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 1rem;
+}
+
+.card2:hover {
+  transform: scale(0.98);
+  border-radius: 20px;
+}
+
+.card h2 {
+  margin-bottom: 1rem;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease-out 0.3s;
+}
+
+.card.animate h2 {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.icons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease-out 0.6s;
+}
+
+.card.animate .icons {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.icons img {
+  width: 50px;
+  height: 50px;
+}
+
+.bottom-box {
+  background: radial-gradient(circle, #616161 0%, #0E153B 100%);
+  border-radius: 1.5rem;
+  width: 70%;
+  padding: 1.5rem;
+  margin: 3rem auto;
+  color: white;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease-out;
+}
+
+.bottom-box.animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.bottom-box h2 {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease-out 0.3s;
+}
+
+.bottom-box.animate h2 {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.bottom-box p {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease-out 0.6s;
+}
+
+.bottom-box.animate p {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.btn-shine {
+  display: inline-block;
+  margin: 0 auto 1rem;
+  padding: 12px 48px;
+  color: #fff;
+  background: linear-gradient(to right, #9f9f9f 0, #fff 10%, #868686 20%);
+  background-position: 0;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shine 3s infinite linear;
+  animation-fill-mode: forwards;
+  font-weight: 600;
+  font-size: 24px;
+  text-decoration: none;
+  white-space: nowrap;
+  font-family: "Poppins", sans-serif;
+}
+
+@keyframes shine {
+  0% {
+    background-position: 0;
+  }
+  60% {
+    background-position: 180px;
+  }
+  100% {
+    background-position: 180px;
+  }
+}
+
+@media (max-width: 768px) {
+  .about {
+    width: 80%;
+  }
+
+  .card {
+    width: 300px;
+    height: auto;
+  }
+
+  .bottom-box {
+    width: 90%;
+  }
+
+  .loader {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    flex-direction: column;
+    gap: 1rem;
+    width: 90%;
+  }
+
+  .about {
+    width: 90%;
+  }
+
+  .card {
+    width: 100%;
+    height: auto;
+  }
+
+  .icons img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .bottom-box {
+    width: 95%;
+  }
+
+  .loader {
+    font-size: 18px;
+  }
+
+  .card-loader {
+    padding: 0.8rem 1.5rem;
+  }
+}
