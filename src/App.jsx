@@ -299,15 +299,99 @@ const App = () => {
     // 3D Floating Elements - BLUE THEME
     heroVisual: {
       position: 'relative',
-      height: '300px',
+      height: '400px',
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
       animation: 'slideInRight 1s ease-out',
       maxWidth: '100%',
-      overflow: 'hidden',
+      overflow: 'visible',
       width: '100%',
+      perspective: '1000px',
     },
+    
+    // MacBook Animation Styles
+    macbook: {
+      position: 'relative',
+      width: 'clamp(280px, 50vw, 450px)',
+      height: 'clamp(175px, 30vw, 280px)',
+      transformStyle: 'preserve-3d',
+      animation: 'macbookFloat 6s ease-in-out infinite',
+      filter: 'drop-shadow(0 25px 50px rgba(0,0,0,0.3))',
+    },
+    macbookBase: {
+      position: 'absolute',
+      bottom: '0',
+      left: '0',
+      width: '100%',
+      height: 'clamp(18px, 4vw, 28px)',
+      background: 'linear-gradient(145deg, #e5e7eb, #9ca3af, #6b7280)',
+      borderRadius: '0 0 15px 15px',
+      boxShadow: '0 15px 40px rgba(0,0,0,0.4), inset 0 2px 4px rgba(255,255,255,0.3)',
+      zIndex: 2,
+      border: '1px solid #9ca3af',
+    },
+    macbookLid: {
+      position: 'absolute',
+      bottom: 'clamp(18px, 4vw, 28px)',
+      left: '0',
+      width: '100%',
+      height: 'clamp(157px, 26vw, 252px)',
+      background: 'linear-gradient(145deg, #f9fafb, #e5e7eb, #d1d5db)',
+      borderRadius: '15px 15px 5px 5px',
+      transformOrigin: 'bottom center',
+      animation: 'macbookOpen 4s ease-out 0.5s both',
+      boxShadow: '0 -10px 30px rgba(0,0,0,0.3), inset 0 2px 4px rgba(255,255,255,0.4)',
+      border: '1px solid #d1d5db',
+    },
+    macbookScreen: {
+      position: 'absolute',
+      top: 'clamp(12px, 3vw, 18px)',
+      left: 'clamp(12px, 3vw, 18px)',
+      right: 'clamp(12px, 3vw, 18px)',
+      bottom: 'clamp(20px, 5vw, 32px)',
+      background: isDarkMode 
+        ? 'linear-gradient(145deg, #000000, #1a1a2e, #16213e)' 
+        : 'linear-gradient(145deg, #000000, #1e40af, #3b82f6)',
+      borderRadius: 'clamp(6px, 2vw, 12px)',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      overflow: 'hidden',
+      border: '2px solid #000000',
+    },
+    macbookScreenContent: {
+      color: 'white',
+      textAlign: 'center',
+      fontSize: 'clamp(12px, 2.5vw, 18px)',
+      fontWeight: 'bold',
+      opacity: 0,
+      animation: 'screenContentFadeIn 1.5s ease-out 4s both',
+      zIndex: 2,
+    },
+    macbookKeyboard: {
+      position: 'absolute',
+      bottom: '2px',
+      left: 'clamp(12px, 3vw, 18px)',
+      right: 'clamp(12px, 3vw, 18px)',
+      height: 'clamp(12px, 3vw, 18px)',
+      background: 'linear-gradient(145deg, #374151, #1f2937, #111827)',
+      borderRadius: '6px',
+      zIndex: 3,
+      border: '1px solid #1f2937',
+    },
+    macbookAppleLogo: {
+      position: 'absolute',
+      top: '50%',
+      left: '50%',
+      transform: 'translate(-50%, -50%)',
+      width: 'clamp(16px, 4vw, 24px)',
+      height: 'clamp(16px, 4vw, 24px)',
+      background: 'linear-gradient(145deg, #9ca3af, #6b7280)',
+      borderRadius: '50%',
+      opacity: 0.7,
+    },
+    
     floatingShape: {
       position: 'absolute',
       borderRadius: '20px',
@@ -557,6 +641,48 @@ const App = () => {
       0%, 100% { transform: scale(1); }
       50% { transform: scale(1.05); }
     }
+    @keyframes macbookOpen {
+      0% { 
+        transform: rotateX(0deg); 
+        box-shadow: 0 -10px 30px rgba(0,0,0,0.3), inset 0 2px 4px rgba(255,255,255,0.4);
+      }
+      25% { 
+        transform: rotateX(-30deg); 
+        box-shadow: 0 -15px 40px rgba(0,0,0,0.4), inset 0 2px 4px rgba(255,255,255,0.4);
+      }
+      50% { 
+        transform: rotateX(-60deg); 
+        box-shadow: 0 -20px 50px rgba(0,0,0,0.5), inset 0 2px 4px rgba(255,255,255,0.4);
+      }
+      75% { 
+        transform: rotateX(-90deg); 
+        box-shadow: 0 -25px 60px rgba(0,0,0,0.6), inset 0 2px 4px rgba(255,255,255,0.4);
+      }
+      100% { 
+        transform: rotateX(-125deg); 
+        box-shadow: 0 -30px 70px rgba(0,0,0,0.7), inset 0 2px 4px rgba(255,255,255,0.4);
+      }
+    }
+    @keyframes macbookFloat {
+      0%, 100% { transform: translateY(0px) rotateY(-2deg) scale(1); }
+      25% { transform: translateY(-15px) rotateY(2deg) scale(1.02); }
+      50% { transform: translateY(-8px) rotateY(0deg) scale(1.01); }
+      75% { transform: translateY(-20px) rotateY(-1deg) scale(1.02); }
+    }
+    @keyframes screenContentFadeIn {
+      0% { 
+        opacity: 0; 
+        transform: scale(0.8) translateY(10px); 
+      }
+      50% { 
+        opacity: 0.5; 
+        transform: scale(0.9) translateY(5px); 
+      }
+      100% { 
+        opacity: 1; 
+        transform: scale(1) translateY(0px); 
+      }
+    }
   `;
 
   if (isLoading) {
@@ -654,29 +780,60 @@ const App = () => {
               </div>
             </div>
             <div style={styles.heroVisual}>
+              {/* MacBook Opening Animation */}
+              <div style={styles.macbook}>
+                {/* MacBook Base */}
+                <div style={styles.macbookBase}>
+                  <div style={styles.macbookKeyboard}></div>
+                </div>
+                {/* MacBook Lid/Screen */}
+                <div style={styles.macbookLid}>
+                  {/* Apple Logo on back of lid */}
+                  <div style={styles.macbookAppleLogo}></div>
+                  <div style={styles.macbookScreen}>
+                    <div style={styles.macbookScreenContent}>
+                      <div style={{fontSize: 'clamp(16px, 4vw, 24px)', marginBottom: '8px'}}>💻</div>
+                      <div style={{marginBottom: '4px'}}>RohanWebWorks</div>
+                      <div style={{fontSize: 'clamp(10px, 2vw, 14px)', opacity: 0.8}}>Frontend Portfolio</div>
+                      <div style={{
+                        width: '80%', 
+                        height: '2px', 
+                        background: 'linear-gradient(90deg, transparent, #3b82f6, transparent)',
+                        margin: '8px auto 0',
+                        borderRadius: '1px'
+                      }}></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              {/* Floating background shapes */}
               <div style={{
                 ...styles.floatingShape,
                 width: '60px',
                 height: '60px',
-                top: '10%',
-                left: '20%',
+                top: '5%',
+                left: '5%',
                 animationDelay: '0s',
+                zIndex: -1,
               }}></div>
               <div style={{
                 ...styles.floatingShape,
                 width: '40px',
                 height: '40px',
-                top: '60%',
-                right: '30%',
+                top: '75%',
+                right: '5%',
                 animationDelay: '2s',
+                zIndex: -1,
               }}></div>
               <div style={{
                 ...styles.floatingShape,
                 width: '50px',
                 height: '50px',
-                bottom: '20%',
-                left: '40%',
+                bottom: '5%',
+                left: '75%',
                 animationDelay: '4s',
+                zIndex: -1,
               }}></div>
             </div>
           </div>
